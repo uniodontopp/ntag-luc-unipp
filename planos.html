@@ -19,9 +19,8 @@
             --shape-dark: #560b49; 
             --text-dark: #333;
             
-            /* Cores específicas do Card da Foto */
-            --header-purple: #810e56; /* Roxo do topo */
-            --badge-yellow: #dcdb4e;  /* Amarelo do selo */
+            /* Cores específicas do Card */
+            --header-purple: #810e56; 
         }
 
         body { 
@@ -41,25 +40,29 @@
         }
 
         .container { 
-            max-width: 400px; /* Largura mais estreita igual ao panfleto */
+            max-width: 400px; 
             width: 100%; 
         }
 
-        /* Botão Voltar */
+        /* --- BOTÃO VOLTAR (Branco Sólido) --- */
         .btn-voltar {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             margin-bottom: 20px;
-            color: white;
+            color: var(--header-purple); /* Texto Roxo */
             text-decoration: none;
             font-weight: 700;
-            background: rgba(255,255,255,0.2);
+            background: #ffffff; /* Fundo Branco Sólido */
             padding: 10px 20px;
             border-radius: 30px;
             transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-        .btn-voltar:hover { background: rgba(255,255,255,0.3); }
+        .btn-voltar:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
 
         /* --- O CARD ESTILO PANFLETO --- */
         .pamphlet-card {
@@ -69,16 +72,15 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             position: relative;
             text-align: left;
-            padding-bottom: 20px;
         }
 
         /* Cabeçalho Roxo Curvo */
         .card-header {
             background-color: var(--header-purple);
-            color: #dcdb4e; /* Texto Amarelo/Lima */
+            color: #dcdb4e; 
             padding: 20px;
             text-align: center;
-            border-radius: 20px 20px 0 0; /* Curva apenas em cima */
+            border-radius: 20px 20px 0 0; 
         }
 
         .card-header h1 {
@@ -108,56 +110,33 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            font-size: 1.15rem; /* Texto grande e legível */
-            line-height: 1.6;
+            font-size: 1.1rem; 
+            line-height: 1.5;
             color: #444;
             font-weight: 500;
         }
 
         .items-list li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: flex;
-            align-items: flex-start;
+            align-items: flex-start; 
         }
         
-        .items-list li::before {
-            content: "•";
-            color: #444;
-            font-weight: bold;
-            margin-right: 8px;
-            font-size: 1.2rem;
+        /* Estilo do Ícone Check */
+        .items-list li i {
+            color: var(--header-purple); 
+            margin-right: 10px;
+            font-size: 1rem;
+            margin-top: 4px; 
         }
 
-        /* O Selo "Mais Vendido" */
-        .badge-star {
-            position: absolute;
-            top: 40px;
-            right: 15px;
-            background: var(--badge-yellow);
-            color: var(--header-purple);
-            width: 90px;
-            height: 90px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            font-weight: 800;
-            font-size: 0.85rem;
-            line-height: 1.1;
-            text-transform: uppercase;
-            transform: rotate(15deg);
-            z-index: 10;
-            /* Recorte de Estrela/Explosão */
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Rodapé com Link */
+        /* Rodapé com Link - CENTRALIZADO */
         .card-footer {
-            padding: 0 25px 15px 25px;
+            padding: 0 25px 30px 25px; 
             font-size: 0.85rem;
             color: #666;
             line-height: 1.4;
+            text-align: center; 
         }
         .website-link {
             color: var(--header-purple);
@@ -167,23 +146,25 @@
             margin-top: 5px;
         }
 
-        /* Botão Cotar (Estilo Botão Uniodonto) */
+        /* --- BOTÃO COTAR (Ajustado) --- */
         .btn-cotar {
             display: block;
-            margin: 20px 25px 0 25px;
+            margin: 20px 25px 25px 25px; 
             background: var(--header-purple);
             color: white;
             text-align: center;
-            padding: 15px;
+            padding: 12px; /* Reduzido de 15px para ficar mais elegante */
             border-radius: 12px;
             font-weight: 700;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15); /* Sombra suave */
         }
         .btn-cotar:hover {
             background: #5e083d;
             transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
         }
 
     </style>
@@ -207,22 +188,18 @@
 
             <div class="card-body">
                 
-                <div class="badge-star">
-                    O Mais<br>Vendido
-                </div>
-
                 <ul class="items-list">
-                    <li>Consultas;</li>
-                    <li>Urgência;</li>
-                    <li>Odontopediatria;</li>
-                    <li>Prevenção;</li>
-                    <li>Restauração;</li>
-                    <li>Radiografia;</li>
-                    <li>Cirurgia;</li>
-                    <li>Periodontia (tratamento das doenças da gengiva);</li>
-                    <li>Endodontia (tratamento de canal);</li>
-                    <li>Prótese (provisória e metálica)</li>
-                    <li>E muito mais.</li>
+                    <li><i class="fa-solid fa-check"></i> Consultas;</li>
+                    <li><i class="fa-solid fa-check"></i> Urgência;</li>
+                    <li><i class="fa-solid fa-check"></i> Odontopediatria;</li>
+                    <li><i class="fa-solid fa-check"></i> Prevenção;</li>
+                    <li><i class="fa-solid fa-check"></i> Restauração;</li>
+                    <li><i class="fa-solid fa-check"></i> Radiografia;</li>
+                    <li><i class="fa-solid fa-check"></i> Cirurgia;</li>
+                    <li><i class="fa-solid fa-check"></i> Periodontia (tratamento das doenças da gengiva);</li>
+                    <li><i class="fa-solid fa-check"></i> Endodontia (tratamento de canal);</li>
+                    <li><i class="fa-solid fa-check"></i> Prótese (provisória e metálica)</li>
+                    <li><i class="fa-solid fa-check"></i> E muito mais.</li>
                 </ul>
 
                 <a href="https://wa.me/5518996719437?text=Olá Luciana, vi o folheto do Plano Ouro e gostaria de saber mais." class="btn-cotar">
@@ -234,8 +211,6 @@
                 Consulte cobertura completa do plano no nosso site:<br>
                 <a href="https://www.uniodontoprudente.com.br" class="website-link" target="_blank">www.uniodontoprudente.com.br</a>
             </div>
-            
-            <div style="height: 10px; background: repeating-linear-gradient(90deg, #e8e76b, #e8e76b 10px, white 10px, white 20px); opacity: 0.5;"></div>
 
         </div>
 
