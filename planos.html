@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow"> 
+    <title>Plano Ouro | Uniodonto</title> 
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georama:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* --- CONFIGURAÇÕES VISUAIS --- */
+        :root {
+            --bg-vinho: #810e56;     
+            --shape-cyan: #70cddf;     
+            --shape-dark: #560b49; 
+            --text-dark: #333;
+            
+            /* Cores específicas do Card da Foto */
+            --header-purple: #810e56; /* Roxo do topo */
+            --badge-yellow: #dcdb4e;  /* Amarelo do selo */
+        }
+
+        body { 
+            background-color: var(--bg-vinho);
+            background-image: 
+                radial-gradient(circle at 0% 0%, var(--shape-cyan) 0%, var(--shape-cyan) 35%, transparent 35.1%),
+                radial-gradient(circle at 80% 110%, var(--shape-dark) 0%, var(--shape-dark) 50%, transparent 50.1%);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: var(--text-dark); 
+            font-family: 'Georama', sans-serif;
+            display: flex; 
+            justify-content: center; 
+            min-height: 100vh; 
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container { 
+            max-width: 400px; /* Largura mais estreita igual ao panfleto */
+            width: 100%; 
+        }
+
+        /* Botão Voltar */
+        .btn-voltar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+        .btn-voltar:hover { background: rgba(255,255,255,0.3); }
+
+        /* --- O CARD ESTILO PANFLETO --- */
+        .pamphlet-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            position: relative;
+            text-align: left;
+            padding-bottom: 20px;
+        }
+
+        /* Cabeçalho Roxo Curvo */
+        .card-header {
+            background-color: var(--header-purple);
+            color: #dcdb4e; /* Texto Amarelo/Lima */
+            padding: 20px;
+            text-align: center;
+            border-radius: 20px 20px 0 0; /* Curva apenas em cima */
+        }
+
+        .card-header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .subtitle-box {
+            background: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Lista de Itens */
+        .card-body {
+            padding: 25px;
+            position: relative;
+        }
+
+        .items-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1.15rem; /* Texto grande e legível */
+            line-height: 1.6;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .items-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .items-list li::before {
+            content: "•";
+            color: #444;
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* O Selo "Mais Vendido" */
+        .badge-star {
+            position: absolute;
+            top: 40px;
+            right: 15px;
+            background: var(--badge-yellow);
+            color: var(--header-purple);
+            width: 90px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+            transform: rotate(15deg);
+            z-index: 10;
+            /* Recorte de Estrela/Explosão */
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Rodapé com Link */
+        .card-footer {
+            padding: 0 25px 15px 25px;
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.4;
+        }
+        .website-link {
+            color: var(--header-purple);
+            font-weight: 700;
+            text-decoration: none;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Botão Cotar (Estilo Botão Uniodonto) */
+        .btn-cotar {
+            display: block;
+            margin: 20px 25px 0 25px;
+            background: var(--header-purple);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+        .btn-cotar:hover {
+            background: #5e083d;
+            transform: translateY(-2px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="btn-voltar">
+            <i class="fa-solid fa-arrow-left"></i> Voltar
+        </a>
+
+        <div class="pamphlet-card">
+            
+            <div class="card-header">
+                <h1>Plano Ouro</h1>
+            </div>
+            
+            <div class="subtitle-box">
+                Mais de 132 procedimentos
+            </div>
+
+            <div class="card-body">
+                
+                <div class="badge-star">
+                    O Mais<br>Vendido
+                </div>
+
+                <ul class="items-list">
+                    <li>Consultas;</li>
+                    <li>Urgência;</li>
+                    <li>Odontopediatria;</li>
+                    <li>Prevenção;</li>
+                    <li>Restauração;</li>
+                    <li>Radiografia;</li>
+                    <li>Cirurgia;</li>
+                    <li>Periodontia (tratamento das doenças da gengiva);</li>
+                    <li>Endodontia (tratamento de canal);</li>
+                    <li>Prótese (provisória e metálica)</li>
+                    <li>E muito mais.</li>
+                </ul>
+
+                <a href="https://wa.me/5518996719437?text=Olá Luciana, vi o folheto do Plano Ouro e gostaria de saber mais." class="btn-cotar">
+                    Cotar Agora
+                </a>
+            </div>
+
+            <div class="card-footer">
+                Consulte cobertura completa do plano no nosso site:<br>
+                <a href="https://www.uniodontoprudente.com.br" class="website-link" target="_blank">www.uniodontoprudente.com.br</a>
+            </div>
+            
+            <div style="height: 10px; background: repeating-linear-gradient(90deg, #e8e76b, #e8e76b 10px, white 10px, white 20px); opacity: 0.5;"></div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
